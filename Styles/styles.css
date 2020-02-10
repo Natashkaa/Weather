@@ -1,0 +1,115 @@
+@media (min-width: 1000px){
+    #inp_city{
+        width: 400px;
+    }
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+    #inp_city{
+        width: 300px;
+    }
+}
+@media (min-width: 100px) and (max-width: 800px) {
+    #inp_city{
+        width: 200px;
+    }
+}
+.header{
+    width: 100%;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+.header h2{
+    color: rgb(0, 141, 122);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.header-input-container{
+    display: flex;
+    align-items: center;
+}
+#inp_city{
+   border: 1px solid rgb(188, 188, 188);
+   padding: 5px 10px;
+   outline-color: rgba(163, 161, 161, 0);
+   border-radius: 5px;
+   margin-right: 5px;
+   padding-right: 35px;
+}
+#inp_city:focus {
+    box-shadow: 0 0 0 0.5pt rgb(201, 201, 201);
+}
+.btn-find{
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    background-color: rgb(255, 253, 253);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    position: absolute;
+    right: 30px;
+}
+.btn-find:focus{
+    outline: none;   
+}
+/* .btn-find:active{
+   background-color: rgb(253, 0, 0);
+} */
+/* .btn-find:hover {
+    box-shadow: 0 0 5pt 0 rgb(5, 255, 25);
+} */
+.btn-find img{
+    width: 80%;
+    height: 80%;
+}
+.btn-find img:hover{
+    width: 90%;
+    height: 90%;
+}
+
+/*header2*/
+.header2{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(42, 51, 50);
+}
+.btn-today{
+    height: 99%;
+    width: 150px;
+    font-size: 18px;
+    background-color: rgb(42, 51, 50);
+    color: white;
+    border: none;
+}
+.btn-today:focus, .btn-5day:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(251, 255, 0);
+}
+.btn-today:active, .btn-5day:active{
+   background-color: rgb(9, 71, 63);
+}
+.btn-today:hover, .btn-5day:hover{
+    box-shadow: 0 0 5pt 0 rgb(4, 90, 79);
+}
+.btn-5day{
+    height: 100%;
+    width: 200px;
+    font-size: 18px;
+    background-color: rgb(42, 51, 50);
+    color: white;
+    border: none;
+}
+
+/*data*/
+.container-fluid{
+    background-color: rgb(187, 187, 187);
+}
+.error-container{
+    background-color: rgb(230, 230, 230);
+    background-size: contain;
+}
+.error-descr{
+    color: gray
+}
