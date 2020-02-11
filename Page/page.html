@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="../Styles/styles.css">
 </head>
 
@@ -43,7 +44,42 @@
                     </div>
                 </div>
             </div>
-        </div>
-</body>
 
+            <div class="row mt-4 ml-0 mr-0">
+                <div class="container col-12 p-5 current-weather-day d-xs-block d-lg-flex d-md-flex justify-content-between">
+                    <div class="cur-weather">
+                        <p class="green-names">CURRENT WEATHER</p>
+                        <div>
+                            <img src="../Source/sun.png">
+                            <p>Sunny</p>
+                        </div>
+                    </div>
+                    <div class="cur-temp">
+                        <div>
+                            <p id="temperature">29°C</p>
+                            <p>Real feel 30°</p>
+                        </div>
+                    </div>
+                    <div class="cur-date">
+                        <p class="green-names">30.06.2020</p>
+                        <div>
+                            <p>Sunrise: 7:04 AM</p>
+                            <p>Sunset: 5:11 PM</p>
+                            <p>Duration: 10:07 hr</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <script src="../Scripts/script.js"></script>
+</body>
+<cffunction name="optionsMethod" access="remote" output="false" returntype="any" httpmethod="OPTIONS" description="Method to respond to AngularJS trial call">
+    <cfheader name="Access-Control-Allow-Headers" value="Content-Type,x-requested-with,Authorization,Access-Control-Allow-Origin"> 
+    <cfheader name="Access-Control-Allow-Methods" value="GET,OPTIONS">      
+    <cfheader name="Access-Control-Allow-Origin" value="*">      
+    <cfheader name="Access-Control-Max-Age" value="360">        
+</cffunction>
 </html>
