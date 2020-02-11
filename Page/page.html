@@ -17,7 +17,7 @@
             <h2>MY WEATHER</h2>
             <div class="header-input-container">
                 <input type="text" id="inp_city">
-                <button class="btn-find">
+                <button class="btn-find" id="btn_find">
                     <img src="../Source/search.ico">
                 </button>
             </div>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="container-fluid p-4 m-0">
-            <div class="row m-0">
+            <div class="row m-0" id="error_row">
                 <div class="container col-12 m-0 p-0 error-container">
                     <div class="row justify-content-center">
                         <img class="error-img col-lg-2 col-md-2 col-sm-3 col-4" src="../Source/error404.ico">
@@ -50,22 +50,22 @@
                     <div class="cur-weather">
                         <p class="green-names">CURRENT WEATHER</p>
                         <div>
-                            <img src="../Source/sun.png">
-                            <p>Sunny</p>
+                            <img id="current_weather_img">
+                            <p id="weather_main"></p>
                         </div>
                     </div>
                     <div class="cur-temp">
                         <div>
-                            <p id="temperature">29°C</p>
-                            <p>Real feel 30°</p>
+                            <p id="current_temperature"></p>
+                            <p id="current_pressure"></p>
                         </div>
                     </div>
                     <div class="cur-date">
-                        <p class="green-names">30.06.2020</p>
+                        <p class="green-names" id="current_date"></p>
                         <div>
-                            <p>Sunrise: 7:04 AM</p>
-                            <p>Sunset: 5:11 PM</p>
-                            <p>Duration: 10:07 hr</p>
+                            <p id="sunrise"></p>
+                            <p id="sunset"></p>
+                            <p id="duration"></p>
                         </div>
                     </div>
 
@@ -76,10 +76,4 @@
 
         <script src="../Scripts/script.js"></script>
 </body>
-<cffunction name="optionsMethod" access="remote" output="false" returntype="any" httpmethod="OPTIONS" description="Method to respond to AngularJS trial call">
-    <cfheader name="Access-Control-Allow-Headers" value="Content-Type,x-requested-with,Authorization,Access-Control-Allow-Origin"> 
-    <cfheader name="Access-Control-Allow-Methods" value="GET,OPTIONS">      
-    <cfheader name="Access-Control-Allow-Origin" value="*">      
-    <cfheader name="Access-Control-Max-Age" value="360">        
-</cffunction>
 </html>

@@ -1,36 +1,65 @@
 /*classes*/
-let url = "https://samples.openweathermap.org/data/2.5/weather?";
+let url = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?";
+let city = "Kiev";
 let apiKey = "a49244ade877ce6d9959e8846248bb70";
 var urlByCoords;
+var urlByCity;
 
+$('#current_date').text(`${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()}`);
 if ("geolocation" in navigator) {
-    /* геолокация доступна */
     navigator.geolocation.getCurrentPosition(function(position) {
         urlByCoords = `${url}lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`;
-        fetch("https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22", {
-            method: 'GET',
-            mode: 'no-cors', // no-cors, cors, *same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'text/html',
-                'Accept-Language': 'zh-CN',
+        FEETCH(urlByCoords).then(x => {
+            $('#weather_main').text(x.weather[0].main);
+            $('#current_weather_img').attr("src", `../Source/${x.weather[0].icon}.png`);
+            $('#current_temperature').text(`${x.main.temp-273,15}°C`);
+            $('#current_pressure').text(`Pressure: ${(x.main.pressure/1.333).toFixed(0)}`);
+            let unix_timestampSunrise = x.sys.sunrise;
+            let dateSunrise = new Date(unix_timestampSunrise * 1000);
+            let hours1 = dateSunrise.getHours();
+            let minutes1 = dateSunrise.getMinutes();
+            var formattedTimeSunrise = hours1 + ':' + minutes1;
+            
+            let unix_timestampSunset = x.sys.sunset;
+            let dateSunset = new Date(unix_timestampSunset * 1000);
+            let hours2 = dateSunset.getHours();
+            let minutes2 = dateSunset.getMinutes();
+            var formattedTimeSunset= hours2 + ':' + minutes2;
+            $('#sunrise').text(`Sunrise: ${formattedTimeSunrise}`);
+            $('#sunset').text(`Sunrise: ${formattedTimeSunset}`);
+            let duration;
+            if(minutes1 < minutes2){
+                duration = `${hours2 - hours1}h ${minutes2 - minutes1}m`;
+                $('#duration').text(`Duration: ${duration}`);
             }
-             // include, *same-origin, omit
-            //headers: {
-            //'Content-Type': 'application/json',
-             //'Content-Type': 'application/x-www-form-urlencoded'
-        //}
-        }).then(r => r.text())
-             .then(commits => alert(commits));
-
+            else{
+                duration = `${(hours2-1) - hours1}h ${60-(minutes1 - minutes2)}m`;
+                $('#duration').text(`Duration: ${duration}`);
+            }
+            
+        });
+        // urlByCity = `${url}q=${city}&appid=${apiKey}`;
+        // FEETCH(urlByCoords).then(x => {
+        // alert(x.status);
+        // });
     });
 } else {
-    /* геолокация НЕдоступна */
+    
 }
 
 
+
+$('#btn_find').on( "click", function() {
+    urlByCity = `${url}q=${city}&appid=${apiKey}`;
+    FEETCH(urlByCoords).then(x => {
+        alert(x.status);
+    });
+});
+
+
+
+
+/*
 var httpRequest;
 function GetResult(url){
     if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -52,7 +81,6 @@ function GetResult(url){
     }
     if (!httpRequest) {
         alert('Giving up :( Cannot create an XMLHTTP instance');
-        //return false;
     }
     httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
     httpRequest.open('GET', url, true);
@@ -67,44 +95,10 @@ function alertContents(httpRequest) {
 		}
 	}
 };
+*/
 
 async function FEETCH(url){
-    // fetch(url,{
-    //     method: 'GET',
-    //     mode: 'no-cors', // no-cors, cors, *same-origin
-    //     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    //     credentials: 'same-origin', // include, *same-origin, omit
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         // 'Content-Type': 'application/x-www-form-urlencoded',
-    //     }})
-    //     .then(response => response.text())
-    //     .then(commits => alert(commits[0]));
-
-        // if(response.ok){
-        //     alert(response);
-        //     let commits = await response.json(); // читаем ответ в формате JSON
-        //     alert(commits[0]);
-        // }else {
-        //     alert("Ошибка HTTP: " + response.status);
-        //   }
-        
-        let response = await fetch(url, {
-            method: 'GET',
-            mode: 'no-cors', // no-cors, cors, *same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin' // include, *same-origin, omit
-            //headers: {
-            //'Content-Type': 'application/json',
-             //'Content-Type': 'application/x-www-form-urlencoded'
-        //}
-        });
-
-        let text = await response.text();
-        alert(text); // прочитать тело ответа как текс
-
-
-
-    
+        let response = await fetch(url);
+        let text = await response.json();
+        return text;
 }
-
