@@ -27,28 +27,29 @@
 
     <div class="container col-12 m-0 p-0">
         <div class="header2 pl-4">
-            <button class="btn-today">Today</button>
-            <button class="btn-5day">5-day forecast</button>
+            <button class="btn-today" id="btn_today">Today</button>
+            <button class="btn-5day" id="btn_5day">5-day forecast</button>
         </div>
 
         <div class="container-fluid p-4 m-0">
+            <!--error block-->
             <div class="row m-0" id="error_row">
                 <div class="container col-12 m-0 p-0 error-container">
                     <div class="row justify-content-center">
                         <img class="error-img col-lg-2 col-md-2 col-sm-3 col-4" src="../Source/error404.ico">
                     </div>
                     <div class="row justify-content-center pb-3">
-                        <h2 class="error-descr col-lg-7 col-md-10 col-sm-10 col-10">
-                            sfsdfsdfsdfsdf could not be found. Please try enter a different location.
+                        <h2 class="error-descr col-lg-6 col-md-8 col-sm-8 col-8 align-self-center">
                         </h2>
                     </div>
                 </div>
             </div>
-
-            <div class="row mt-4 ml-0 mr-0">
-                <div class="container col-12 p-5 current-weather-day d-xs-block d-lg-flex d-md-flex justify-content-between">
+            <!--today weather block-->
+            <div class="row mt-4 ml-0 mr-0 show-weather">
+                <div
+                    class="container col-12 p-5 current-weather-day d-xs-block d-lg-flex d-md-flex justify-content-between">
                     <div class="cur-weather">
-                        <p class="green-names">CURRENT WEATHER</p>
+                        <p class="yellow-names">CURRENT WEATHER</p>
                         <div>
                             <img id="current_weather_img">
                             <p id="weather_main"></p>
@@ -61,19 +62,82 @@
                         </div>
                     </div>
                     <div class="cur-date">
-                        <p class="green-names" id="current_date"></p>
+                        <p class="yellow-names" id="current_date"></p>
                         <div>
                             <p id="sunrise"></p>
                             <p id="sunset"></p>
                             <p id="duration"></p>
                         </div>
                     </div>
-
+                </div>
+            </div>
+            <!--hourly(5h) forecast weather block-->
+            <div class="row mt-4 ml-0 mr-0 show-weather">
+                <div class="container forecast col-12 p-5">
+                    <div>
+                        <p class="yellow-names ml-lg-3 ml-md-3 ml-sm-1 ml-n3">Hourly</p>
+                    </div>
+                    <table class="hourly-forecast-table ml-md-4 ml-sm-2 ml-n4">
+                        <thead>
+                            <tr>
+                                <th class="hourly d-xs-block d-lg-block d-md-block d-none">Today</th>
+                                <th class="th-time">19:00</th>
+                                <th class="th-time">20:00</th>
+                                <th class="th-time">21:00</th>
+                                <th class="th-time">22:00</th>
+                                <th class="th-time">23:00</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="d-xs-table-cell d-lg-table-cell d-md-table-cell d-none"></td>
+                                <td><img class="table-img" src="../Source/01d.png"></td>
+                                <td><img class="table-img" src="../Source/02d.png"></td>
+                                <td><img class="table-img" src="../Source/11d.png"></td>
+                                <td><img class="table-img" src="../Source/10d.png"></td>
+                                <td><img class="table-img" src="../Source/03d.png"></td>
+                            </tr>
+                            <tr class="tr-with-border">
+                                <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Forecast</td>
+                                <td>Sunny</td>
+                                <td>Sunny</td>
+                                <td>Clear</td>
+                                <td>Rain</td>
+                                <td>Clear</td>
+                            </tr>
+                            <tr class="tr-with-border">
+                                <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Temp°C</td>
+                                <td>29°C</td>
+                                <td>28°C</td>
+                                <td>27°C</td>
+                                <td>26°C</td>
+                                <td>26°C</td>
+                            </tr>
+                            <tr class="tr-with-border">
+                                <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Pressure</td>
+                                <td>755</td>
+                                <td>755</td>
+                                <td>755</td>
+                                <td>756</td>
+                                <td>754</td>
+                            </tr>
+                            <tr>
+                                <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Wind(km/h)</td>
+                                <td>10km/h</td>
+                                <td>10km/h</td>
+                                <td>9km/h</td>
+                                <td>8km/h</td>
+                                <td>7km/h</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
 
-
-        <script src="../Scripts/script.js"></script>
+    <script src="../Other/Objects.js"></script>
+    <script src="../Scripts/script.js"></script> 
 </body>
+
 </html>

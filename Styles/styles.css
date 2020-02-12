@@ -2,15 +2,54 @@
     #inp_city{
         width: 400px;
     }
+    .hourly-forecast-table{
+        font-size: 30px;
+    }
+    .hourly-forecast-table thead th{
+        padding: 10px
+    }
+    .th-time{
+        font-size: 26px;
+    }
+    .table-img{
+        width: 100px;
+        height: 100px;
+    }
 }
 @media (min-width: 700px) and (max-width: 1000px) {
     #inp_city{
         width: 300px;
     }
+    .hourly-forecast-table{
+        font-size: 26px;
+    }
+    .hourly-forecast-table thead th{
+        padding: 10px
+    }
+    .th-time{
+        font-size: 26px;
+    }
+    .table-img{
+        width: 90px;
+        height: 90px;
+    }
 }
 @media (min-width: 100px) and (max-width: 800px) {
     #inp_city{
         width: 200px;
+    }
+    .hourly-forecast-table{
+        font-size: 16px;
+    }
+    .hourly-forecast-table thead th{
+        padding: 0
+    }
+    .th-time{
+        font-size: 20px;
+    }
+    .table-img{
+        width: 80px;
+        height: 80px;
     }
 }
 .header{
@@ -54,12 +93,6 @@
 .btn-find:focus{
     outline: none;   
 }
-/* .btn-find:active{
-   background-color: rgb(253, 0, 0);
-} */
-/* .btn-find:hover {
-    box-shadow: 0 0 5pt 0 rgb(5, 255, 25);
-} */
 .btn-find img{
     width: 90%;
     height: 90%;
@@ -101,6 +134,10 @@
     color: white;
     border: none;
 }
+.active-btn{
+    outline: none;
+    border-bottom: 2px solid rgb(251, 255, 0);
+}
 
 /*data*/
 .container-fluid{
@@ -108,19 +145,21 @@
 }
 /*error block*/
 .error-container{
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(255, 255, 255);
     background-size: contain;
 }
 .error-descr{
-    color: gray
+    color:rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #error_row{
     display: none;
 }
 
 /*current weather and date*/
-.current-weather-day{
-    background-color: rgb(240, 240, 240);
+.current-weather-day, .forecast{
+    background-color: rgb(42, 51, 50);
+    color: white;
 }
 .cur-weather{
     width: 100%;
@@ -147,8 +186,41 @@
     font-weight: bolder;
     font-size: 50px;
 }
-.green-names{
-    color: rgb(0, 141, 122);
+.yellow-names{
+    color: rgb(251, 255, 0);
     font-size: 32px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*hourly forecast*/
+.hourly{
+    color: rgb(251, 255, 0);
+    font-size: 26px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+}
+.hourly-forecast-table{
+    width: 100%;
+    font-weight: lighter;
+    border-collapse: collapse;
+    vertical-align: middle !important;
+    text-align: center;
+    empty-cells: show;
+}
+
+.th-time{
+    font-weight: lighter;
+}
+.first-td{
+    color: rgb(221, 221, 221);
+    font-weight: lighter;
+    font-size: 20px !important;
+}
+
+.hourly-forecast-table tbody tr{
+    font-size: 20px;
+    height: 50px;
+}
+.tr-with-border{
+    border-bottom: 1px solid rgb(69, 83, 82);
 }
