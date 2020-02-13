@@ -15,6 +15,9 @@
         width: 100px;
         height: 100px;
     }
+    .forecasts-blocks{
+        border-right: 1px solid rgb(69, 83, 82);
+    }
 }
 @media (min-width: 700px) and (max-width: 1000px) {
     #inp_city{
@@ -33,6 +36,9 @@
         width: 90px;
         height: 90px;
     }
+    .forecasts-blocks{
+        border-right: 1px solid rgb(69, 83, 82);
+    }
 }
 @media (min-width: 100px) and (max-width: 800px) {
     #inp_city{
@@ -50,6 +56,9 @@
     .table-img{
         width: 80px;
         height: 80px;
+    }
+    .forecasts-blocks{
+        border-bottom: 1px solid rgb(69, 83, 82);
     }
 }
 .header{
@@ -207,7 +216,6 @@
     text-align: center;
     empty-cells: show;
 }
-
 .th-time{
     font-weight: lighter;
 }
@@ -216,11 +224,32 @@
     font-weight: lighter;
     font-size: 20px !important;
 }
-
 .hourly-forecast-table tbody tr{
     font-size: 20px;
     height: 50px;
 }
 .tr-with-border{
     border-bottom: 1px solid rgb(69, 83, 82);
+}
+
+/*5 days forecast*/
+.forecasts-blocks{
+    background-color: rgb(42, 51, 50);
+    color: white;
+    width: 100%;
+    transition: 1s;
+    vertical-align: middle !important;
+    text-align: center;
+}
+.forecasts-blocks:last-child{
+    border: none
+}
+.forecasts-blocks:hover{
+    background-color: rgb(36, 43, 42);
+    box-shadow: 0 0 5pt 0pt rgb(255, 238, 0);
+    z-index: 10;
+}
+.active-forecast-block{
+    box-shadow: 0 0 5pt 0pt rgb(255, 238, 0);
+    z-index: 10;
 }

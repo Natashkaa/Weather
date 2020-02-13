@@ -6,7 +6,7 @@
     <meta name="Weather" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Document</title>
+    <title>MyWeather</title>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="../Styles/styles.css">
 </head>
@@ -71,8 +71,48 @@
                     </div>
                 </div>
             </div>
+             <!--5 days-->
+             <div class="row mt-4 ml-n3 mr-n3 forecast-blocks-container">
+                <div class="container col-12 d-xs-flex d-lg-flex d-md-flex justify-content-between">
+                    <div class="forecasts-blocks pt-4 pb-4">
+                        <p class="yellow-names week-day"></p>
+                        <p class="monthAndday"></p>
+                        <img class="forecast-img">
+                        <h4 class="forecast-temp"></h4>
+                        <p class="forecast-main"></p>
+                    </div>
+                    <div class="forecasts-blocks pt-4 pb-4">
+                        <p class="yellow-names week-day"></p>
+                        <p class="monthAndday"></p>
+                        <img class="forecast-img">
+                        <h4 class="forecast-temp"></h4>
+                        <p class="forecast-main"></p>
+                    </div>
+                    <div class="forecasts-blocks pt-4 pb-4">
+                        <p class="yellow-names week-day"></p>
+                        <p class="monthAndday"></p>
+                        <img class="forecast-img">
+                        <h4 class="forecast-temp"></h4>
+                        <p class="forecast-main"></p>
+                    </div>
+                    <div class="forecasts-blocks pt-4 pb-4">
+                        <p class="yellow-names week-day"></p>
+                        <p class="monthAndday"></p>
+                        <img class="forecast-img">
+                        <h4 class="forecast-temp"></h4>
+                        <p class="forecast-main"></p>
+                    </div>
+                    <div class="forecasts-blocks pt-4 pb-4">
+                        <p class="yellow-names week-day"></p>
+                        <p class="monthAndday"></p>
+                        <img class="forecast-img">
+                        <h4 class="forecast-temp"></h4>
+                        <p class="forecast-main"></p>
+                    </div>
+                </div>
+            </div>
             <!--hourly(5h) forecast weather block-->
-            <div class="row mt-4 ml-0 mr-0 show-weather">
+            <div class="row mt-4 ml-0 mr-0 forecast-table">
                 <div class="container forecast col-12 p-5">
                     <div>
                         <p class="yellow-names ml-lg-3 ml-md-3 ml-sm-1 ml-n3">Hourly</p>
@@ -81,53 +121,53 @@
                         <thead>
                             <tr>
                                 <th class="hourly d-xs-block d-lg-block d-md-block d-none">Today</th>
-                                <th class="th-time">19:00</th>
-                                <th class="th-time">20:00</th>
-                                <th class="th-time">21:00</th>
-                                <th class="th-time">22:00</th>
-                                <th class="th-time">23:00</th>
+                                <th class="th-time" id="h1"></th>
+                                <th class="th-time" id="h2"></th>
+                                <th class="th-time" id="h3"></th>
+                                <th class="th-time" id="h4"></th>
+                                <th class="th-time" id="h5"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="d-xs-table-cell d-lg-table-cell d-md-table-cell d-none"></td>
-                                <td><img class="table-img" src="../Source/01d.png"></td>
-                                <td><img class="table-img" src="../Source/02d.png"></td>
-                                <td><img class="table-img" src="../Source/11d.png"></td>
-                                <td><img class="table-img" src="../Source/10d.png"></td>
-                                <td><img class="table-img" src="../Source/03d.png"></td>
+                                <td><img class="table-img"></td>
+                                <td><img class="table-img"></td>
+                                <td><img class="table-img"></td>
+                                <td><img class="table-img"></td>
+                                <td><img class="table-img"></td>
                             </tr>
                             <tr class="tr-with-border">
                                 <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Forecast</td>
-                                <td>Sunny</td>
-                                <td>Sunny</td>
-                                <td>Clear</td>
-                                <td>Rain</td>
-                                <td>Clear</td>
+                                <td class="main"></td>
+                                <td class="main"></td>
+                                <td class="main"></td>
+                                <td class="main"></td>
+                                <td class="main"></td>
                             </tr>
                             <tr class="tr-with-border">
                                 <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Temp°C</td>
-                                <td>29°C</td>
-                                <td>28°C</td>
-                                <td>27°C</td>
-                                <td>26°C</td>
-                                <td>26°C</td>
+                                <td class="temperature"></td>
+                                <td class="temperature"></td>
+                                <td class="temperature"></td>
+                                <td class="temperature"></td>
+                                <td class="temperature"></td>
                             </tr>
                             <tr class="tr-with-border">
                                 <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Pressure</td>
-                                <td>755</td>
-                                <td>755</td>
-                                <td>755</td>
-                                <td>756</td>
-                                <td>754</td>
+                                <td class="pressure"></td>
+                                <td class="pressure"></td>
+                                <td class="pressure"></td>
+                                <td class="pressure"></td>
+                                <td class="pressure"></td>
                             </tr>
                             <tr>
                                 <td class="first-td d-xs-table-cell d-lg-table-cell d-md-table-cell d-none">Wind(km/h)</td>
-                                <td>10km/h</td>
-                                <td>10km/h</td>
-                                <td>9km/h</td>
-                                <td>8km/h</td>
-                                <td>7km/h</td>
+                                <td class="wind"></td>
+                                <td class="wind"></td>
+                                <td class="wind"></td>
+                                <td class="wind"></td>
+                                <td class="wind"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -136,7 +176,7 @@
         </div>
     </div>
 
-    <script src="../Other/Objects.js"></script>
+    <script src="../Other/Functions.js"></script>
     <script src="../Scripts/script.js"></script> 
 </body>
 
